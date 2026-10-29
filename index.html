@@ -5,70 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Heiner Hofmann | Kitesurf</title>
 <meta name="description" content="Aulas presenciais, curso avançado, clínica e equipamentos de kitesurf com Heiner Hofmann.">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,800;1,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg1:#3fd3c6; --bg2:#5ce58f;
-    --ink:#0d1b1e; --card:#ffffff; --muted:#5b6b6e;
-    --shadow:4px 4px 0 var(--ink);
+    --bg:#0a0a0a; --surface:#141414; --line:#262626;
+    --text:#f5f5f5; --muted:#8a8a8a; --accent:#c6ff3d;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
-    min-height:100vh;font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);
-    background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%) fixed;
-    display:flex;justify-content:center;padding:32px 16px 48px;
+    min-height:100vh;font-family:"Inter",system-ui,sans-serif;color:var(--text);background:var(--bg);
+    display:flex;justify-content:center;padding:40px 16px 56px;position:relative;overflow-x:hidden;
   }
-  main{width:100%;max-width:520px;display:flex;flex-direction:column;gap:16px}
-  header{text-align:center;margin-bottom:8px}
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;
+    background:radial-gradient(600px 400px at 50% -10%,rgba(198,255,61,.12),transparent 70%);
+  }
+  main{width:100%;max-width:520px;display:flex;flex-direction:column;gap:12px;position:relative}
+  .display{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.5px}
+
+  header{text-align:center;margin-bottom:20px}
   .avatar{
-    width:96px;height:96px;border-radius:50%;object-fit:cover;
-    border:3px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.18);background:#cfeeea;
+    width:104px;height:104px;border-radius:50%;object-fit:cover;background:var(--surface);
+    border:2px solid var(--accent);padding:3px;
   }
-  h1{font-family:"Anton",sans-serif;font-weight:400;font-size:30px;letter-spacing:.5px;margin-top:12px;color:#fff;text-shadow:2px 2px 0 var(--ink)}
-  .bio{color:#0d3b37;font-weight:500;margin-top:4px;font-size:15px}
+  h1{font-size:40px;line-height:1;margin-top:16px}
+  h1 em{color:var(--accent);font-style:inherit}
+  .bio{color:var(--muted);margin-top:8px;font-size:14px;letter-spacing:.3px}
 
   a.card{
-    display:block;text-decoration:none;color:inherit;background:var(--card);
-    border:2px solid var(--ink);border-radius:18px;box-shadow:var(--shadow);
-    transition:transform .15s ease,box-shadow .15s ease;
+    display:block;text-decoration:none;color:inherit;background:var(--surface);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    transition:border-color .2s ease,transform .2s ease;
   }
-  a.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
-  a.card:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+  a.card:hover{border-color:var(--accent);transform:translateY(-2px)}
 
-  .row{display:flex;align-items:center;gap:12px;padding:10px 14px;min-height:60px}
-  .row .ico{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:#e6f8f5;font-size:20px}
-  .row span{flex:1;text-align:center;font-weight:700;font-size:14px;letter-spacing:.6px;text-transform:uppercase;padding-right:40px}
-
-  .feature{padding:8px}
-  .feature .media{border-radius:12px;overflow:hidden;aspect-ratio:16/9;position:relative}
-  .feature img{width:100%;height:100%;object-fit:cover;display:block}
-  .feature .label{padding:12px 8px 6px;text-align:center}
-  .feature .label strong{display:block;font-size:16px;text-transform:uppercase;letter-spacing:.6px}
-  .feature .label small{color:var(--muted);font-size:13px}
+  .feature .media{aspect-ratio:16/9;position:relative;overflow:hidden}
+  .feature img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  a.feature:hover img{transform:scale(1.04)}
+  .feature .media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.85))}
+  .feature .title{position:absolute;left:18px;right:18px;bottom:14px;z-index:1;font-size:30px;line-height:.95}
   .tag{
-    position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;
-    text-transform:uppercase;letter-spacing:1px;padding:5px 9px;border-radius:999px
+    position:absolute;top:14px;left:14px;z-index:1;background:var(--accent);color:#0a0a0a;
+    font:700 11px "Inter",sans-serif;text-transform:uppercase;letter-spacing:1.2px;padding:5px 10px;border-radius:4px
   }
-  .hero-kite{
-    background:linear-gradient(160deg,#bff3ec 0%,#7fd8f0 55%,#2fb4c9 100%);
-    display:grid;place-items:center;font-family:"Anton",sans-serif;font-size:42px;color:#fff;
-    text-shadow:3px 3px 0 var(--ink);text-align:center;line-height:1.05;padding:20px
+  .feature .foot{display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+  .feature .foot small{color:var(--muted);font-size:13px}
+  .cta{font:600 13px "Inter",sans-serif;color:var(--accent);text-transform:uppercase;letter-spacing:1px}
+
+  .placeholder{
+    width:100%;height:100%;display:block;
+    background:
+      repeating-linear-gradient(135deg,rgba(198,255,61,.07) 0 2px,transparent 2px 22px),
+      linear-gradient(160deg,#1c2a2e,#0a0a0a);
   }
-  footer{text-align:center;color:#0d3b37;font-size:12px;margin-top:12px}
+
+  .row{display:flex;align-items:center;gap:14px;padding:16px 18px}
+  .row svg{width:22px;height:22px;flex:none;color:var(--accent)}
+  .row span{flex:1;font-size:22px;line-height:1}
+  .row .arrow{color:var(--muted);font-size:18px;transition:transform .2s ease,color .2s ease}
+  a.card:hover .arrow{color:var(--accent);transform:translateX(4px)}
+
+  .section-label{color:var(--muted);font:600 11px "Inter",sans-serif;text-transform:uppercase;letter-spacing:2px;margin:12px 2px 0}
+  footer{text-align:center;color:#555;font-size:12px;margin-top:24px;letter-spacing:.5px}
 </style>
 </head>
 <body>
 <main>
   <header>
-    <img class="avatar" src="assets/perfil.jpg" alt="Heiner Hofmann" onerror="this.style.visibility='hidden'">
-    <h1>@heinerhofmann</h1>
-    <p class="bio">Instrutor de kitesurf · Heiner Hofmann Kite Academy</p>
+    <img class="avatar" src="assets/perfil.jpg" alt="Heiner Hofmann" onerror="this.removeAttribute('src')">
+    <h1 class="display">Heiner <em>Hofmann</em></h1>
+    <p class="bio">Instrutor de kitesurf · Kite Academy</p>
   </header>
 
   <a class="card feature" href="https://wa.me/5551995464701?text=Oi%20Heiner!%20Quero%20agendar%20uma%20aula%20presencial%20de%20kitesurf." target="_blank" rel="noopener">
-    <div class="media hero-kite"><span class="tag">Presencial</span>AGENDE SUA<br>AULA</div>
-    <div class="label"><strong>Agende sua aula presencial</strong><small>Fale direto comigo no WhatsApp</small></div>
+    <div class="media">
+      <span class="tag">Presencial</span>
+      <img src="assets/aula.jpg" alt="" onerror="this.outerHTML='<span class=placeholder></span>'">
+      <div class="title display">Agende sua aula</div>
+    </div>
+    <div class="foot"><small>Direto comigo no WhatsApp</small><span class="cta">Agendar →</span></div>
   </a>
 
   <a class="card feature" href="https://kiteacademy.com.br/" target="_blank" rel="noopener">
@@ -76,23 +93,37 @@
       <span class="tag">Online</span>
       <img src="https://ugc.production.linktr.ee/0ebb0938-a5f0-4a6d-883f-8755bfa72a46_CAPA-CURSO-HEINER-7ccf617c2ff8487cad6fad6dcb5bc24f-4c6e4a6aea4d467aabd31d1418a9bb65.png?io=true&size=thumbnail-feature-v1_0" alt="Curso Avançado de Kitesurf">
     </div>
-    <div class="label"><strong>Curso Avançado de Kitesurf</strong><small>Heiner Hofmann Kite Academy</small></div>
+    <div class="foot"><small>Curso Avançado de Kitesurf</small><span class="cta">Ver curso →</span></div>
   </a>
 
+  <p class="section-label">Mais</p>
+
   <a class="card" href="https://tr.ee/eCxXAU8B0Y" target="_blank" rel="noopener">
-    <div class="row"><div class="ico">🪁</div><span>Clínica de kitesurf · informações</span></div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 10l8 4 8-4z"/><path d="M12 14v8"/></svg>
+      <span class="display">Clínica de Kitesurf</span><b class="arrow">→</b>
+    </div>
   </a>
 
   <a class="card" href="https://wa.me/5551995464701?text=Oi%20Heiner!%20Quero%20saber%20sobre%20equipamentos." target="_blank" rel="noopener">
-    <div class="row"><div class="ico">🏄</div><span>Adquira seus equipamentos</span></div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-2 9H8z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+      <span class="display">Equipamentos</span><b class="arrow">→</b>
+    </div>
   </a>
 
   <a class="card" href="https://youtube.com/@heinerhofmannkite" target="_blank" rel="noopener">
-    <div class="row"><div class="ico">▶️</div><span>YouTube</span></div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/></svg>
+      <span class="display">YouTube</span><b class="arrow">→</b>
+    </div>
   </a>
 
   <a class="card" href="https://www.tiktok.com/@heinerhofmannkite" target="_blank" rel="noopener">
-    <div class="row"><div class="ico">🎵</div><span>TikTok</span></div>
+    <div class="row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11a4 4 0 1 1-4-4"/><path d="M14 3c.5 3 2.5 5 6 5"/></svg>
+      <span class="display">TikTok</span><b class="arrow">→</b>
+    </div>
   </a>
 
   <footer>© Heiner Hofmann Kite Academy</footer>

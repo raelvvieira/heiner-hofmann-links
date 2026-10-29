@@ -16,22 +16,22 @@
   *{box-sizing:border-box;margin:0;padding:0}
   body{
     min-height:100vh;font-family:"Inter",system-ui,sans-serif;color:var(--text);background:var(--bg);
-    display:flex;justify-content:center;padding:40px 16px 56px;position:relative;overflow-x:hidden;
+    display:flex;justify-content:center;padding:0 16px calc(40px + env(safe-area-inset-bottom));-webkit-tap-highlight-color:transparent;position:relative;overflow-x:hidden;
   }
   body::before{
     content:"";position:fixed;inset:0;pointer-events:none;
     background:radial-gradient(600px 400px at 50% -10%,rgba(255,90,30,.16),transparent 70%);
   }
-  main{width:100%;max-width:520px;display:flex;flex-direction:column;gap:12px;position:relative}
+  main{width:100%;max-width:440px;display:flex;flex-direction:column;gap:12px;position:relative}
   .display{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.5px}
 
   header{text-align:center;margin-bottom:20px;position:relative}
-  .cover{margin:-40px -16px 0;height:220px;position:relative;overflow:hidden;border-radius:0 0 24px 24px}
+  .cover{margin:0 -16px;height:200px;position:relative;overflow:hidden;border-radius:0 0 24px 24px}
   .cover img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
   .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.1) 30%,var(--bg))}
   .logo{width:78%;max-width:340px;display:block;margin:0 auto}
   .avatar{
-    width:104px;height:104px;border-radius:50%;object-fit:cover;background:var(--surface);
+    width:96px;height:96px;border-radius:50%;object-fit:cover;background:var(--surface);
     border:3px solid transparent;padding:3px;margin-top:-56px;position:relative;object-position:center 20%;background:linear-gradient(var(--surface),var(--surface)) padding-box,var(--grad) border-box;
   }
   h1{margin-top:18px}
@@ -49,7 +49,7 @@
   .feature img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
   a.feature:hover img{transform:scale(1.04)}
   .feature .media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.85))}
-  .feature .title{position:absolute;left:18px;right:18px;bottom:14px;z-index:1;font-size:30px;line-height:.95}
+  .feature .title{position:absolute;left:16px;right:16px;bottom:12px;z-index:1;font-size:28px;line-height:.95}
   .tag{
     position:absolute;top:14px;left:14px;z-index:1;background:var(--grad);color:#fff;
     font:700 11px "Inter",sans-serif;text-transform:uppercase;letter-spacing:1.2px;padding:5px 10px;border-radius:4px
@@ -65,13 +65,18 @@
       linear-gradient(160deg,#2a1610,#0a0a0a);
   }
 
-  .row{display:flex;align-items:center;gap:14px;padding:16px 18px}
+  .row{display:flex;align-items:center;gap:14px;padding:0 18px;min-height:60px}
   .row svg{width:22px;height:22px;flex:none;color:var(--accent)}
   .row span{flex:1;font-size:22px;line-height:1}
   .row .arrow{color:var(--muted);font-size:18px;transition:transform .2s ease,color .2s ease}
   a.card:hover .arrow{color:var(--accent);transform:translateX(4px)}
 
   .section-label{color:var(--muted);font:600 11px "Inter",sans-serif;text-transform:uppercase;letter-spacing:2px;margin:12px 2px 0}
+  @media (min-width:600px){
+    body{padding-top:32px}
+    .cover{margin:0;border-radius:24px;height:240px}
+    .feature .title{font-size:34px}
+  }
   footer{text-align:center;color:#555;font-size:12px;margin-top:24px;letter-spacing:.5px}
 </style>
 </head>

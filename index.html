@@ -72,8 +72,10 @@
   .row span{flex:1;font-size:16px;line-height:1}
   .row .arrow{color:var(--muted);font-size:14px;font-weight:400;transition:transform .2s ease,color .2s ease}
   a.card:hover .arrow{color:var(--accent);transform:translateX(3px)}
-  .row .brand{height:26px;width:auto;display:block}
-  .row .brand-wrap{flex:1}
+  .academy{background:#0d0d0d}
+  .academy .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:grayscale(1) brightness(.35)}
+  .academy::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 50% 120%,rgba(227,18,45,.35),transparent 60%),radial-gradient(70% 90% at 50% -20%,rgba(255,106,26,.25),transparent 60%)}
+  .feature .academy>img.mark{height:auto;object-fit:contain;transition:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58%;z-index:1}
 
   .section-label{color:var(--muted);font:600 9px "Inter",sans-serif;text-transform:uppercase;letter-spacing:2px;margin:10px 2px 0}
   @media (min-width:600px){
@@ -113,13 +115,16 @@
     <div class="foot"><strong class="display">Curso Avançado</strong><span class="cta">Ver curso →</span></div>
   </a>
 
-  <p class="section-label">Mais</p>
-
-  <a class="card" href="https://www.kiteacademy.com.br/" target="_blank" rel="noopener">
-    <div class="row">
-      <div class="brand-wrap"><img class="brand" src="assets/logo-academy.png" alt="Heiner Hofmann Kite Academy"></div><b class="arrow">→</b>
+  <a class="card feature" href="https://www.kiteacademy.com.br/" target="_blank" rel="noopener">
+    <div class="media academy">
+      <span class="tag">Escola</span>
+      <img class="bg" src="assets/salto.jpg" alt="">
+      <img class="mark" src="assets/logo-academy.png" alt="Heiner Hofmann Kite Academy">
     </div>
+    <div class="foot"><strong class="display">Kite Academy</strong><span class="cta">Conhecer →</span></div>
   </a>
+
+  <p class="section-label">Mais</p>
 
   <a class="card" href="https://tr.ee/eCxXAU8B0Y" target="_blank" rel="noopener">
     <div class="row">

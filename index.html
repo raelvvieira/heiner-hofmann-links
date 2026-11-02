@@ -57,14 +57,17 @@
 
   /* capa do curso, montada em código */
   .course{background:#0d0d0d;isolation:isolate}
-  .course .photo{position:absolute;right:0;top:0;width:50%;height:100%;object-fit:cover;object-position:60% 18%;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+  .feature .course>img.photo{position:absolute;right:0;top:0;width:52%;height:100%;object-fit:cover;object-position:60% 18%;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);mask-image:linear-gradient(90deg,transparent,#000 35%)}
   .course::before{content:"";position:absolute;inset:0;z-index:-1;
     background:radial-gradient(120% 140% at 0% 100%,rgba(227,18,45,.35),transparent 55%),radial-gradient(90% 120% at 10% 0%,rgba(255,106,26,.22),transparent 60%)}
-  .course .copy{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:1}
-  .course .eyebrow{font:600 9px "Inter",sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+  .course .copy{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:1;width:46%}
+  .course .eyebrow{font:600 8.5px/1.35 "Inter",sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent)}
   .course .name{font-family:"Barlow Condensed",sans-serif;font-weight:400;font-size:25px;line-height:.95;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
   .course .name b{font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .course .trio{position:absolute;right:0;top:0;width:52%;height:100%;display:flex;gap:2px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+  .course .trio img{flex:1;min-width:0;height:100%;object-fit:cover}
   .course .bar{width:28px;height:2px;background:var(--grad);margin-top:9px}
 
   .row{display:flex;align-items:center;gap:11px;padding:0 14px;min-height:46px}
@@ -102,17 +105,36 @@
     <div class="foot"><strong class="display">Agende sua aula</strong><span class="cta">Agendar →</span></div>
   </a>
 
+  <p class="section-label">Cursos online</p>
+
+  <a class="card feature" href="https://pay.kiwify.com.br/c921EFq" target="_blank" rel="noopener">
+    <div class="media course">
+      <span class="tag">3 cursos</span>
+      <div class="trio">
+        <img src="assets/aula.webp" alt="" style="object-position:72% 40%">
+        <img src="assets/salto.jpg" alt="" style="object-position:55% 45%">
+        <img src="assets/praia.jpg" alt="" style="object-position:30% 60%">
+      </div>
+      <div class="copy">
+        <div class="eyebrow">Básico + Avançado + Kiteloop</div>
+        <div class="name">Formação<br><b>Completa</b></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="foot"><strong class="display">Formação Completa</strong><span class="cta">Ver cursos →</span></div>
+  </a>
+
   <a class="card feature" href="https://pay.kiwify.com.br/73yp8n8" target="_blank" rel="noopener">
     <div class="media course">
       <span class="tag">Online</span>
       <img class="photo" src="assets/aula.webp" alt="Aula de kitesurf na praia" style="object-position:72% 40%">
       <div class="copy">
-        <div class="eyebrow">Curso online</div>
-        <div class="name">Básico de<br><b>Kitesurf</b></div>
+        <div class="eyebrow">Do zero à primeira velejada</div>
+        <div class="name">Kitesurf<br><b>Básico</b></div>
         <div class="bar"></div>
       </div>
     </div>
-    <div class="foot"><strong class="display">Curso Básico</strong><span class="cta">Ver curso →</span></div>
+    <div class="foot"><strong class="display">Kitesurf Básico</strong><span class="cta">Ver curso →</span></div>
   </a>
 
   <a class="card feature" href="https://pay.kiwify.com.br/ilh9mMZ" target="_blank" rel="noopener">
@@ -120,13 +142,28 @@
       <span class="tag">Online</span>
       <img class="photo" src="assets/salto.jpg" alt="Heiner Hofmann em manobra de kitesurf" style="object-position:52% 40%">
       <div class="copy">
-        <div class="eyebrow">Curso online</div>
-        <div class="name">Avançado de<br><b>Kitesurf</b></div>
+        <div class="eyebrow">Saltos, transições e controle</div>
+        <div class="name">Kitesurf<br><b>Avançado</b></div>
         <div class="bar"></div>
       </div>
     </div>
-    <div class="foot"><strong class="display">Curso Avançado</strong><span class="cta">Ver curso →</span></div>
+    <div class="foot"><strong class="display">Kitesurf Avançado</strong><span class="cta">Ver curso →</span></div>
   </a>
+
+  <a class="card feature" href="https://pay.kiwify.com.br/6GEy7bY" target="_blank" rel="noopener">
+    <div class="media course">
+      <span class="tag">Masterclass</span>
+      <img class="photo" src="assets/praia.jpg" alt="Praia de kitesurf ao pôr do sol" style="object-position:30% 55%">
+      <div class="copy">
+        <div class="eyebrow">Do zero ao megaloop</div>
+        <div class="name">Kiteloop<br><b>Masterclass</b></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="foot"><strong class="display">Kiteloop Masterclass</strong><span class="cta">Ver curso →</span></div>
+  </a>
+
+  <p class="section-label">Escola</p>
 
   <a class="card feature" href="https://www.kiteacademy.com.br/" target="_blank" rel="noopener">
     <div class="media academy">

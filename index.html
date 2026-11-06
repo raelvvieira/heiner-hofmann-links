@@ -206,5 +206,28 @@
 
   <footer>© Heiner Hofmann Kite Academy</footer>
 </main>
+<script>
+  // Repassa as UTMs da visita para os checkouts e guarda por 30 dias
+  (function(){
+    var CHAVES=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];
+    var GUARDA='hh_utms', VALIDADE=30*24*60*60*1000;
+    var url=new URLSearchParams(location.search), utms={};
+    CHAVES.forEach(function(k){ if(url.get(k)) utms[k]=url.get(k); });
+    try{
+      if(Object.keys(utms).length){
+        localStorage.setItem(GUARDA,JSON.stringify({t:Date.now(),v:utms}));
+      }else{
+        var salvo=JSON.parse(localStorage.getItem(GUARDA)||'null');
+        if(salvo && Date.now()-salvo.t<VALIDADE) utms=salvo.v;
+      }
+    }catch(e){}
+    if(!Object.keys(utms).length) utms={utm_source:'direto'};
+    document.querySelectorAll('a[href*="pay.kiwify.com.br"],a[href*="kiteacademy.com.br"]').forEach(function(a){
+      var destino=new URL(a.href);
+      Object.keys(utms).forEach(function(k){ destino.searchParams.set(k,utms[k]); });
+      a.href=destino.toString();
+    });
+  })();
+</script>
 </body>
 </html>
